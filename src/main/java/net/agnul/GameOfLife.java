@@ -43,8 +43,8 @@ public class GameOfLife {
         int toY = Math.min(y + 1, rows);
 
         List<Cell> neighbours = new ArrayList<>();
-        for (int i = fromX; i < toX; ++i) {
-            for (int j = fromY; j < toY; ++j) {
+        for (int i = fromX; i <= toX; ++i) {
+            for (int j = fromY; j <= toY; ++j) {
                 if (i == x && j == y) {
                     continue;
                 }
