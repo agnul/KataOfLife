@@ -4,7 +4,7 @@ import java.util.Arrays;
 
 public class Cell {
 
-    private GameOfLife game;
+    private Board board;
 
     private int r;
 
@@ -12,9 +12,9 @@ public class Cell {
 
     private boolean alive = false;
 
-    public Cell(GameOfLife game, int r, int c, boolean alive) {
+    public Cell(Board board, int r, int c, boolean alive) {
 
-        this.game = game;
+        this.board = board;
         this.r = r;
         this.c = c;
         this.alive = alive;
@@ -37,7 +37,7 @@ public class Cell {
 
     public int count() {
 
-        Cell[] neighbours = game.getNeighbours(this.r, this.c);
+        Cell[] neighbours = board.getNeighbours(this.r, this.c);
 
         return (int) Arrays.stream(neighbours)
                 .filter(Cell::isAlive)

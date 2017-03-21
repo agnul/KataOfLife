@@ -8,7 +8,7 @@ import org.junit.Test;
 
 public class LifeTest {
 
-    String[] board = {
+    String[] boardState = {
             ". # . . . .",
             ". # # . . .",
             "# # . . . #",
@@ -17,74 +17,76 @@ public class LifeTest {
     };
 
     GameOfLife game;
+    Board board;
 
     @Before
     public void setUp() {
 
-        game = new GameOfLife(board);
+        game = new GameOfLife(boardState);
+        board = game.getBoard();
 
     }
 
     @Test
     public void testCellAt_0_0_isNotAlive() {
 
-        assertThat(game.cellAt(0,0).isAlive(), is(false));
+        assertThat(board.cellAt(0,0).isAlive(), is(false));
 
     }
 
     @Test
     public void testCellAt_0_1_isAlive() {
 
-        assertThat(game.cellAt(0,1).isAlive(), is(true));
+        assertThat(board.cellAt(0,1).isAlive(), is(true));
 
     }
 
     @Test
     public void testCellAt_1_1_willDie() {
 
-        assertThat(game.cellAt(1,1).willLive(), is(true));
+        assertThat(board.cellAt(1,1).willLive(), is(true));
 
     }
 
     @Test
     public void testCellAt_3_4_willNotBeBorn() {
 
-        assertThat(game.cellAt(3, 4).willBeBorn(), is(false));
+        assertThat(board.cellAt(3, 4).willBeBorn(), is(false));
 
     }
 
     @Test
     public void testCellAt_0_2_itNotAlive() {
 
-        assertThat(game.cellAt(0, 2).isAlive(), is(false));
+        assertThat(board.cellAt(0, 2).isAlive(), is(false));
 
     }
 
     @Test
     public void testCellAt_0_2_has3LiveNeighbours() {
 
-        assertThat(game.cellAt(0, 2).count(), is(3));
+        assertThat(board.cellAt(0, 2).count(), is(3));
 
     }
 
     @Test
     public void testCellAt_0_2_willBeBorn() {
 
-        assertThat(game.cellAt(0, 2).willBeBorn(), is(true));
+        assertThat(board.cellAt(0, 2).willBeBorn(), is(true));
 
     }
 
     @Test
     public void testCellAt_2_1_willDie() {
 
-        assertThat(game.cellAt(2, 1).willLive(), is(true));
+        assertThat(board.cellAt(2, 1).willLive(), is(true));
 
     }
 
     @Test
     public void testCellAt_1_2_willLive() {
 
-        assertThat(game.cellAt(1, 2).willLive(), is(false));
+        assertThat(board.cellAt(1, 2).willLive(), is(false));
 
     }
 
