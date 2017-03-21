@@ -21,9 +21,9 @@ public class Cell {
 
     }
 
-    public boolean willDie() {
+    public boolean willLive() {
 
-        return true;
+        return alive && count() > 3;
 
     }
 
@@ -40,7 +40,7 @@ public class Cell {
         Cell[] neighbours = game.getNeighbours(this.x, this.y);
 
         return (int) Arrays.stream(neighbours)
-                .filter(c -> c.isAlive())
+                .filter(Cell::isAlive)
                 .count();
 
     }
