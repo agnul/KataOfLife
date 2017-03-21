@@ -36,4 +36,14 @@ public class GameOfLifeTest {
 
     }
 
+    @Test
+    public void testGameGoesFromToadAlternateToToad() {
+
+        GameOfLife g = new GameOfLife(toadAlternateState);
+
+        g.tick();
+
+        assertThat(g.getBoardState(), is(toadInitialState));
+
+    }
 }

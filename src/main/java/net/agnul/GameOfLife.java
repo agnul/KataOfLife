@@ -65,4 +65,45 @@ public class GameOfLife {
 
     }
 
+    public static void main(String [] args) {
+
+        String[] toad = new String[] {
+                ". . . . . .",
+                ". . . # . .",
+                ". # . . # .",
+                ". # . . # .",
+                ". . # . . .",
+                ". . . . . ."
+
+        };
+
+        String[] beacon = new String[] {
+                ". . . . . .",
+                ". # # . . .",
+                ". # . . . .",
+                ". . . . # .",
+                ". . . # # .",
+                ". . . . . ."
+        };
+
+        GameOfLife g = new GameOfLife(beacon);
+
+        while(true) {
+
+            for (String s: g.getBoardState()) {
+                System.out.println(s);
+            }
+
+            g.tick();
+
+            try {
+                Thread.sleep(500);
+            } catch (InterruptedException e) {
+
+            }
+
+        }
+
+    }
+
 }
