@@ -34,18 +34,18 @@ public class GameOfLife {
 
     }
 
-    public Cell[] getNeighbours(int x, int y) {
+    public Cell[] getNeighbours(int r, int c) {
 
-        int fromX = Math.max(0, x - 1);
-        int toX = Math.min(x + 1, columns);
+        int fromI = Math.max(0, r - 1);
+        int toI = Math.min(r + 1, columns);
 
-        int fromY = Math.max(0, y - 1);
-        int toY = Math.min(y + 1, rows);
+        int fromJ = Math.max(0, c - 1);
+        int toJ = Math.min(c + 1, rows);
 
         List<Cell> neighbours = new ArrayList<>();
-        for (int i = fromX; i <= toX; ++i) {
-            for (int j = fromY; j <= toY; ++j) {
-                if (i == x && j == y) {
+        for (int i = fromI; i <= toI; ++i) {
+            for (int j = fromJ; j <= toJ; ++j) {
+                if (i == r && j == c) {
                     continue;
                 }
 

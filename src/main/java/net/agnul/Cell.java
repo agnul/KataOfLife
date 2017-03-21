@@ -6,17 +6,17 @@ public class Cell {
 
     private GameOfLife game;
 
-    private int x;
+    private int r;
 
-    private int y;
+    private int c;
 
     private boolean alive = false;
 
-    public Cell(GameOfLife game, int x, int y, boolean alive) {
+    public Cell(GameOfLife game, int r, int c, boolean alive) {
 
         this.game = game;
-        this.x = x;
-        this.y = y;
+        this.r = r;
+        this.c = c;
         this.alive = alive;
 
     }
@@ -37,7 +37,7 @@ public class Cell {
 
     public int count() {
 
-        Cell[] neighbours = game.getNeighbours(this.x, this.y);
+        Cell[] neighbours = game.getNeighbours(this.r, this.c);
 
         return (int) Arrays.stream(neighbours)
                 .filter(Cell::isAlive)
