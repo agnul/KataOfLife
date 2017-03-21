@@ -23,7 +23,9 @@ public class Cell {
 
     public boolean willLive() {
 
-        return alive && count() > 3;
+        int neighboursAlive = count();
+
+        return alive && (neighboursAlive == 2 || neighboursAlive == 3);
 
     }
 

@@ -44,7 +44,7 @@ public class LifeTest {
     @Test
     public void testCellAt_1_1_willDie() {
 
-        assertThat(board.cellAt(1,1).willLive(), is(true));
+        assertThat(board.cellAt(1,1).willLive(), is(false));
 
     }
 
@@ -79,14 +79,14 @@ public class LifeTest {
     @Test
     public void testCellAt_2_1_willDie() {
 
-        assertThat(board.cellAt(2, 1).willLive(), is(true));
+        assertThat(board.cellAt(2, 1).willLive(), is(false));
 
     }
 
     @Test
     public void testCellAt_1_2_willLive() {
 
-        assertThat(board.cellAt(1, 2).willLive(), is(false));
+        assertThat(board.cellAt(1, 2).willLive(), is(true));
 
     }
 
